@@ -1,8 +1,14 @@
 certifi==2019.6.16
 chardet==3.0.4
 Django==2.2.2
+django-cors-headers==3.0.2
+django-filter==2.1.0
+django-formtools==2.1
+django-pagination==1.0.7
+django-widget-tweaks==1.4.5
 djangorestframework==3.10.0
 idna==2.8
 pytz==2019.1
+requests==2.22.0
 sqlparse==0.3.0
 urllib3==1.25.3
