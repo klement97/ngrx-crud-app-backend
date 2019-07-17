@@ -69,6 +69,7 @@ TEMPLATES = [
         },
     },
 ]
+
 CORS_ORIGIN_ALLOW_ALL = True
 
 WSGI_APPLICATION = 'carwash_backend.wsgi.application'
