@@ -1,5 +1,6 @@
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView, CreateAPIView
 
+from carwash_backend.common.api_view import SCAPIViewListCreate
 from .models import Service, ServiceType, Shop
 from .serializers import ServiceSerializer, ServiceTypeSerializer, ShopSerializer
 
@@ -31,7 +32,7 @@ class ServiceTypeRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
 
 
 # Service View
-class ServiceListApiView(ListCreateAPIView):
+class ServiceListApiView(SCAPIViewListCreate):
     model = Service
     serializer_class = ServiceSerializer
     queryset = Service.objects.all()
