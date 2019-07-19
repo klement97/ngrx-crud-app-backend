@@ -3,7 +3,7 @@ from rest_framework.serializers import ModelSerializer
 from .models import Service, ServiceType, Shop
 
 
-class ServiceSerializer(ModelSerializer):
+class ServiceListSerializer(ModelSerializer):
     shop_id = serializers.SerializerMethodField()
     service_type_id = serializers.SerializerMethodField()
     time_created = serializers.SerializerMethodField()
@@ -23,6 +23,12 @@ class ServiceSerializer(ModelSerializer):
     @staticmethod
     def get_time_created(obj):
         return obj.time_created.strftime('%H:%m')
+
+
+class ServiceSerializer(ModelSerializer):
+    class Meta:
+        model = Service
+        fields = '__all__'
 
 
 class ServiceTypeSerializer(ModelSerializer):

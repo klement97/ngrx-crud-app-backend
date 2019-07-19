@@ -2,7 +2,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 
 from carwash_backend.common.api_view import SCAPIViewListCreate
 from .models import Service, ServiceType, Shop
-from .serializers import ServiceSerializer, ServiceTypeSerializer, ShopSerializer
+from .serializers import ServiceSerializer, ServiceTypeSerializer, ShopSerializer, ServiceListSerializer
 
 
 # Shop View
@@ -34,7 +34,7 @@ class ServiceTypeRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
 # Service View
 class ServiceListApiView(SCAPIViewListCreate):
     model = Service
-    serializer_class = ServiceSerializer
+    serializer_class = ServiceListSerializer
     queryset = Service.objects.all()
 
     # def form_valid(self, form):
