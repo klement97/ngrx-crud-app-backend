@@ -24,6 +24,7 @@ class ServiceType(SCAModel):
         verbose_name = 'Service Type'
         verbose_name_plural = 'Service Types'
         db_table = 'service_type'
+        ordering = ['-id']
 
     name = models.CharField(max_length=50, blank=False, null=False)
     price = models.DecimalField(max_digits=6, decimal_places=2, blank=False, null=False)
