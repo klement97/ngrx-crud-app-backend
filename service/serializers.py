@@ -18,7 +18,7 @@ class ServiceListSerializer(ModelSerializer):
 
     @staticmethod
     def get_service_type_id(obj):
-        return obj.service_type_id.name
+        return obj.service_types.name
 
     @staticmethod
     def get_time_created(obj):
