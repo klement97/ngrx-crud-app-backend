@@ -44,7 +44,7 @@ class Service(SCAModel):
     time_created = models.TimeField(auto_now_add=True)
     license_plate = models.CharField(max_length=15, blank=False, null=False)
     shop_id = models.ForeignKey(Shop, on_delete=models.PROTECT, verbose_name="Shop")
-    service_type_id = models.ForeignKey(ServiceType, related_name='services', on_delete=models.PROTECT, verbose_name="Service Type")
+    service_types = models.ManyToManyField(to=ServiceType, related_name='services', verbose_name="Service Type")
 
     def __str__(self):
         return 'Service {}'.format(self.id)
