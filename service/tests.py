@@ -1,4 +1,3 @@
-# Create your tests here.
 from django.db.models import ProtectedError
 from django.test import Client, TestCase
 from django.urls import reverse
@@ -56,13 +55,13 @@ class TestServiceTypeViewCRUD(TestCase):
         self.client.login(username='admin', password='12345')
 
     def test_creation_of_service_type_object(self):
-        post_data = {'service_name': 'Inner Wash', 'price': 300.00}
+        post_data = {'name': 'Inner Wash', 'price': 300.00}
         response = self.client.post('/admin/service/servicetype/add/', post_data)
         self.assertEqual(response.status_code, 302)
 
     def test_update_of_service_type_object(self):
         service_type_obj = ServiceType.objects.create(service_name='Inner Wash', price=300.00)
-        update_data = {'service_name': 'Inner Car Wash', 'price': 500.00}
+        update_data = {'name': 'Inner Car Wash', 'price': 500.00}
         url = '/admin/service/servicetype/{}/change/'.format(service_type_obj.pk)
         response = self.client.post(url, update_data)
 
