@@ -6,21 +6,29 @@ from .models import Service, ServiceType, Shop
 
 class ServiceListSerializer(ModelSerializer):
     shop_id = serializers.SerializerMethodField()
-   # service_types = serializers.SerializerMethodField()
+    service_types = serializers.SerializerMethodField()
     date_created = serializers.SerializerMethodField()
     time_created = serializers.SerializerMethodField()
 
     class Meta:
         model = Service
-        fields = '__all__'
+        fields = ['id', 'shop_id', 'service_types', 'date_created', 'time_created']
+
+    @staticmethod
+    def get_service_types(obj):
+        service_types = []
+        types = ServiceTypeSerializer(obj.service_types, many=True).data
+        for i in types:
+            service_types.append(i['name'])
+        return service_types
 
     @staticmethod
     def get_shop_id(obj):
         return obj.shop_id.name
 
-#    @staticmethod	
- #   def get_service_types(obj):
-  #      return obj.service_types.name
+    #    @staticmethod
+    #   def get_service_types(obj):
+    #      return obj.service_types.name
 
     @staticmethod
     def get_date_created(obj):
