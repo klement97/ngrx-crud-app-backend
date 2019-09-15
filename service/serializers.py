@@ -73,8 +73,8 @@ class ServiceSerializer(ModelSerializer):
 class ServiceTypeSerializer(ModelSerializer):
     class Meta:
         model = ServiceType
-        fields = ['id', 'name', 'price']
-        extra_kwargs = {'id': {'read_only': True}}
+        fields = '__all__'
+        read_only_fields = ['id']
 
 
 class ShopSerializer(ModelSerializer):
