@@ -5,7 +5,7 @@
  ### - Virtualenv* (Required)
  After you have successfully created a virtualenv activate it by: source venv/bin/activate (linux)
  https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/
- ### - Install requirements
+ ### - Install requirements* (Required) 
  In 'activated' virtualenv run: pip install -r requirements.txt
  ### - Migrate* (Required)
  Continue in virtualenv as always and run: python manage.py migrate
